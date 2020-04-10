@@ -49,6 +49,10 @@
   color: #a5d6a7;
 }
 
+.featuresContainer a:hover {
+  color: #ffffff;
+}
+
 .pageSection h2 {
   margin-bottom: 0.7em;
   margin-top: 0;

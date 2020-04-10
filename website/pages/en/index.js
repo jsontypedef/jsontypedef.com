@@ -134,7 +134,7 @@ class HomeSplash extends React.Component {
       </div>
     );
     return (
-      <>
+      <React.Fragment>
         <SplashContainer>
           <Logo img_src={`${baseUrl}img/jtd-logo-white.png`} />
           <div className="inner">
@@ -171,7 +171,7 @@ class HomeSplash extends React.Component {
             ]}
           />
         </Container>
-        <div class="wrapper">
+        <div className="wrapper">
           <PageSection>
             <h2>Easy to write, easy to read</h2>
             <div className="row">
@@ -194,7 +194,7 @@ class HomeSplash extends React.Component {
           </PageSection>
         </div>
         <PageSection gray>
-          <div class="wrapper">
+          <div className="wrapper">
             <h2>Easy to use</h2>
             <div className="row">
               <div className="column">
@@ -214,7 +214,7 @@ class HomeSplash extends React.Component {
             </div>
           </div>
         </PageSection>
-        <div class="wrapper">
+        <div className="wrapper">
           <PageSection>
             <h2>Portable and specific errors</h2>
             <div className="row">
@@ -239,7 +239,7 @@ class HomeSplash extends React.Component {
           </PageSection>
         </div>
         <PageSection gray>
-          <div class="wrapper">
+          <div className="wrapper">
             <h2>Powerful code generation</h2>
             <div className="row">
               <div className="column">
@@ -301,7 +301,7 @@ class HomeSplash extends React.Component {
             ]}
           />
         </Container>
-      </>
+      </React.Fragment>
     );
   }
 }
