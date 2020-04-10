@@ -143,7 +143,7 @@ class HomeSplash extends React.Component {
               tagline="Describe the shape of your data once. Automatically generate validators and types for any language."
             />
             <PromoSection>
-              <Button href="/docs">Get Started</Button>
+              <Button href="/docs/getting-started/overview">Get Started</Button>
               <Button href="https://try.jsontypedef.com">Try it online</Button>
             </PromoSection>
           </div>
@@ -156,7 +156,7 @@ class HomeSplash extends React.Component {
               {
                 title: "Easy to learn",
                 content:
-                  "If you've used JSON before, and you've used a type system before, you can learn all of JSON Typedef in just a few minutes.\n\n[Get started with JSON Typedef →](/docs)",
+                  "If you've used JSON before, and you've used a type system before, you can learn all of JSON Typedef in just a few minutes.\n\n[Get started with JSON Typedef →](/docs/getting-started/overview)",
               },
               {
                 title: "Type system / IDE integration",
@@ -166,7 +166,7 @@ class HomeSplash extends React.Component {
               {
                 title: "Cross-platform consistency",
                 content:
-                  " Run input validation anywhere, get conistent results. Every implementation produces the exact same validation errors.\n\n[Browse implementations →](/docs/implementations)",
+                  " Run input validation anywhere, get conistent results. Every implementation produces the exact same validation errors.\n\n[Browse implementations →](/docs/getting-started/implementations)",
               },
             ]}
           />
@@ -204,8 +204,11 @@ class HomeSplash extends React.Component {
                   as easy as <code>jtd.validate(schemaJSON, inputJSON)</code>.
                 </p>
                 <p>
-                  <a href="/docs">Check out the docs</a> to see how easy
-                  validation is in your preferred programming language.
+                  <a href="/docs/getting-started/overview">
+                    Check out the docs
+                  </a>{" "}
+                  to see how easy validation is in your preferred programming
+                  language.
                 </p>
               </div>
               <div className="column">
@@ -265,11 +268,11 @@ class HomeSplash extends React.Component {
                 in TypeScript, Java, or Rust, with more languages on the way!
               </div>
             </div>
-            <div class="row">
-              <div class="column">
+            <div className="row">
+              <div className="column">
                 <MarkdownBlock>{mainExample4}</MarkdownBlock>
               </div>
-              <div class="column">
+              <div className="column">
                 <MarkdownBlock>{mainExample5}</MarkdownBlock>
               </div>
             </div>
@@ -286,7 +289,7 @@ class HomeSplash extends React.Component {
               {
                 title: "Learn JSON Typedef",
                 content:
-                  "JSON Typedef is designed to be obvious and instantly familiar. See how easy it is to pick up, and then learn how to use JTD in your existing code.\n\n[Introduction to JSON Typedef →](/docs/intro)",
+                  "JSON Typedef is designed to be obvious and instantly familiar. See how easy it is to pick up, and then learn how to use JTD in your existing code.\n\n[Introduction to JSON Typedef →](/docs/getting-started/learn-json-typedef)",
               },
               {
                 title: "Infer a schema from real data",
