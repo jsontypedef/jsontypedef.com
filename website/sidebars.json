@@ -13,6 +13,10 @@
     "JavaScript / TypeScript": [
       "javascript/validation",
       "javascript/code-generation"
+    ],
+    "Go": [
+      "golang/validation",
+      "golang/code-generation"
     ]
   }
 }

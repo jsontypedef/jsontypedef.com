@@ -56,7 +56,7 @@ Let's try out some invalid data:
 This time, `jtd.validate` gave us back an array with one element inside of it.
 Every element of the array `jtd.validate` will always have two properties:
 
-* `instancePath` will "point to" the part of the data that had a validatione
+* `instancePath` will "point to" the part of the data that had a validation
   error, and
 * `schemaPath` will "point to" the part of the schema that raised the validation
   error.
