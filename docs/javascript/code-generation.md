@@ -232,6 +232,9 @@ function processInput(input: string): number {
     return 0;
   }
 }
+
+console.log(processInput(goodInput));
+console.log(processInput(badInput));
 ```
 
 All of this is working code. Putting it all together, in a file called
