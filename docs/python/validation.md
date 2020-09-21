@@ -281,7 +281,7 @@ This section discusses some fancier use-cases you can implement with `jtd`.
 By default, `jtd.validate` returns every error it finds. If you just care about
 whether there are any errors at all, or if you can't show more than some number
 of errors, then you can get better performance out of `jtd.validate` using the
-`maxErrors` option.
+`max_errors` option.
 
 For example, we can take the previous example, but only every return at most one
 error, by changing:
