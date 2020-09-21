@@ -20,6 +20,9 @@
     ],
     "Python": [
       "python/validation"
+    ],
+    "Ruby": [
+      "ruby/validation"
     ]
   }
 }
