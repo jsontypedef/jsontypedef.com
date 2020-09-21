@@ -127,7 +127,7 @@ John Doe's favorite numbers add up to 13.1442
 Whoops! Our application does the wrong thing. It could be worse: if the input
 doesn't have `favoriteNumbers` at all, we'll crash altogether.
 
-Fixing this with `jtd` is as simple as calling `jtd.valiate` before you attempt
+Fixing this with `jtd` is as simple as calling `jtd.validate` before you attempt
 to do any processing of the data. Here's how you can do that:
 
 ```js
