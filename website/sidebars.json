@@ -17,6 +17,9 @@
     "Go": [
       "golang/validation",
       "golang/code-generation"
+    ],
+    "Python": [
+      "python/validation"
     ]
   }
 }
