@@ -18,6 +18,10 @@
       "golang/validation",
       "golang/code-generation"
     ],
+    "Java": [
+      "java/validation",
+      "java/code-generation"
+    ],
     "Python": [
       "python/validation"
     ],
