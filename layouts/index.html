@@ -1,0 +1,314 @@
+{{ $css := resources.Get "css/main.css" }}
+{{ $style := $css | resources.PostCSS }}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+  <link rel="stylesheet" href="{{ $style.Permalink }}">
+
+  <title>{{ .Title }}</title>
+</head>
+
+<body>
+  <div class="bg-gray-50">
+    <div class="relative overflow-hidden">
+      <div class="absolute inset-y-0 h-full w-full" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <defs>
+            <pattern id="442c2610-e3a4-4b16-9c33-10f3f1a93526" x="0" y="0" width="600" height="600"
+              patternUnits="userSpaceOnUse">
+              {{ $topo := resources.Get "svg/topopath" }}
+              <path class="text-gray-100" fill="currentColor" d="{{ $topo.Content }}"></path>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#442c2610-e3a4-4b16-9c33-10f3f1a93526)" />
+        </svg>
+      </div>
+
+      <div class="relative pt-6 pb-16 sm:pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+          <nav class="relative flex items-center justify-between sm:h-10 md:justify-center" aria-label="Global">
+            <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
+              <div class="flex items-center justify-between w-full md:w-auto">
+                <a href="#">
+                  <span class="sr-only">Workflow</span>
+                  <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                    alt="">
+                </a>
+                <div class="-mr-2 flex items-center md:hidden">
+                  <button type="button"
+                    class="bg-gray-50 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                    id="main-menu" aria-haspopup="true">
+                    <span class="sr-only">Open main menu</span>
+                    <!-- Heroicon name: menu -->
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                      stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="hidden md:flex md:space-x-10">
+              <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Product</a>
+
+              <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Features</a>
+
+              <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Marketplace</a>
+
+              <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Company</a>
+            </div>
+            <div class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
+              <span class="inline-flex rounded-md shadow">
+                <a href="#"
+                  class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:text-indigo-500">
+                  Log in
+                </a>
+              </span>
+            </div>
+          </nav>
+        </div>
+
+        <!--
+              Mobile menu, show/hide based on menu open state.
+
+              Entering: "duration-150 ease-out"
+                From: "opacity-0 scale-95"
+                To: "opacity-100 scale-100"
+              Leaving: "duration-100 ease-in"
+                From: "opacity-100 scale-100"
+                To: "opacity-0 scale-95"
+            -->
+        <div class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+          <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
+            <div class="px-5 pt-4 flex items-center justify-between">
+              <div>
+                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="">
+              </div>
+              <div class="-mr-2">
+                <button type="button"
+                  class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                  <span class="sr-only">Close main menu</span>
+                  <!-- Heroicon name: x -->
+                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div role="menu" aria-orientation="vertical" aria-labelledby="main-menu">
+              <div class="px-2 pt-2 pb-3 space-y-1" role="none">
+                <a href="#"
+                  class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                  role="menuitem">Product</a>
+
+                <a href="#"
+                  class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                  role="menuitem">Features</a>
+
+                <a href="#"
+                  class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                  role="menuitem">Marketplace</a>
+
+                <a href="#"
+                  class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                  role="menuitem">Company</a>
+              </div>
+              <div role="none">
+                <a href="#"
+                  class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100 hover:text-indigo-700"
+                  role="menuitem">
+                  Log in
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-16 mx-auto max-w-7xl px-4 sm:mt-24 sm:px-6">
+          <div class="text-center">
+            <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+              <span class="block">Schemas for JSON</span>
+              <span class="block text-green-600">optimized for code generation</span>
+            </h1>
+            <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+              JSON Type Definition, aka RFC 8927, is an easy-to-learn, portable,
+              and standardized way to describe the shape of your JSON data.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="absolute inset-0 flex flex-col" aria-hidden="true">
+          <div class="flex-1"></div>
+          <div class="flex-1 w-full bg-gray-800"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 relative">
+          <dl class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+              <div class="px-4 py-4 sm:p-6 border-b border-gray-200">
+                <dt class="text-sm font-medium text-gray-500 truncate font-mono h-8 flex items-center">
+                  user.jtd.json
+                </dt>
+              </div>
+              <div class="px-4 sm:p-6">
+                <dd class="font-semibold">
+                  {{ $user := resources.Get "snippets/user.jtd.json" }}
+                  <code>
+                    <pre>{{ highlight $user.Content "json" "" }}</pre>
+                  </code>
+                </dd>
+              </div>
+            </div>
+
+            <div x-data="{ tab: 'ts' }" class="bg-white overflow-hidden shadow rounded-lg">
+              <div class="px-4 py-5 sm:p-6 border-b border-gray-200">
+                <dt class="text-sm font-medium text-gray-500 truncate h-8 flex items-center">
+                  <button type="button" @click="tab = 'ts'"
+                    :class="{'bg-indigo-50 text-indigo-700': tab === 'ts', 'text-gray-500 hover:text-indigo-600 focus:text-indigo-600': tab !== 'ts'}"
+                    class="inline-block rounded-lg font-medium leading-none py-2 px-3 focus:outline-none bg-indigo-50 text-indigo-700">
+                    TypeScript
+                  </button>
+
+                  <button type="button" @click="tab = 'go'"
+                    :class="{'bg-indigo-50 text-indigo-700': tab === 'go', 'text-gray-500 hover:text-indigo-600 focus:text-indigo-600': tab !== 'go'}"
+                    class="inline-block rounded-lg font-medium leading-none py-2 px-3 focus:outline-none bg-indigo-50 text-indigo-700">
+                    Go
+                  </button>
+
+                  <button type="button" @click="tab = 'java'"
+                    :class="{'bg-indigo-50 text-indigo-700': tab === 'java', 'text-gray-500 hover:text-indigo-600 focus:text-indigo-600': tab !== 'java'}"
+                    class="inline-block rounded-lg font-medium leading-none py-2 px-3 focus:outline-none bg-indigo-50 text-indigo-700">
+                    Java
+                  </button>
+
+                  <button type="button" @click="tab = 'csharp'"
+                    :class="{'bg-indigo-50 text-indigo-700': tab === 'csharp', 'text-gray-500 hover:text-indigo-600 focus:text-indigo-600': tab !== 'csharp'}"
+                    class="inline-block rounded-lg font-medium leading-none py-2 px-3 focus:outline-none bg-indigo-50 text-indigo-700">
+                    C#
+                  </button>
+
+                  <button type="button" @click="tab = 'python'"
+                    :class="{'bg-indigo-50 text-indigo-700': tab === 'python', 'text-gray-500 hover:text-indigo-600 focus:text-indigo-600': tab !== 'python'}"
+                    class="inline-block rounded-lg font-medium leading-none py-2 px-3 focus:outline-none bg-indigo-50 text-indigo-700">
+                    Python
+                  </button>
+
+                  <button type="button" @click="tab = 'rust'"
+                    :class="{'bg-indigo-50 text-indigo-700': tab === 'rust', 'text-gray-500 hover:text-indigo-600 focus:text-indigo-600': tab !== 'rust'}"
+                    class="inline-block rounded-lg font-medium leading-none py-2 px-3 focus:outline-none bg-indigo-50 text-indigo-700">
+                    Rust
+                  </button>
+                </dt>
+              </div>
+              <dd class="px-4 sm:p-6 font-semibold text-gray-900 h-72 max-h-72 overflow-auto">
+                <div :class="{'hidden': tab !== 'ts'}">
+                  {{ $ts := resources.Get "snippets/user.ts" }}
+                  <code>
+                    <pre>{{ highlight $ts.Content "typescript" "" }}</pre>
+                  </code>
+                </div>
+
+                <div :class="{'hidden': tab !== 'go'}">
+                  {{ $go := resources.Get "snippets/user.go" }}
+                  <code>
+                    <pre>{{ highlight $go.Content "go" "" }}</pre>
+                  </code>
+                </div>
+
+                <div :class="{'hidden': tab !== 'java'}">
+                  {{ $java := resources.Get "snippets/User.java" }}
+                  <code>
+                    <pre>{{ highlight $java.Content "java" "" }}</pre>
+                  </code>
+                </div>
+
+                <div :class="{'hidden': tab !== 'csharp'}">
+                  {{ $cs := resources.Get "snippets/User.cs" }}
+                  <code>
+                    <pre>{{ highlight $cs.Content "csharp" "" }}</pre>
+                  </code>
+                </div>
+
+                <div :class="{'hidden': tab !== 'python'}">
+                  {{ $py := resources.Get "snippets/user.py" }}
+                  <code>
+                    <pre>{{ highlight $py.Content "python" "" }}</pre>
+                  </code>
+                </div>
+
+                <div :class="{'hidden': tab !== 'rust'}">
+                  {{ $rs := resources.Get "snippets/user.rs" }}
+                  <code>
+                    <pre>{{ highlight $rs.Content "rust" "" }}</pre>
+                  </code>
+                </div>
+              </dd>
+            </div>
+          </dl>
+        </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div class="bg-gray-800">
+    <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+      <h2 class="text-center text-gray-400 text-sm font-semibold uppercase tracking-wide">
+        Existing implementations in many popular languages
+      </h2>
+      <div class="mt-8 grid grid-cols-2 gap-8 md:grid-cols-6">
+        <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+          <svg class="h-12" viewBox="0 0 128 128">
+            <path class="text-gray-400" fill="currentColor"
+              d="M2,63.91v62.5H127V1.41H2Zm100.73-5a15.56,15.56,0,0,1,7.82,4.5,20.58,20.58,0,0,1,3,4c0,.16-5.4,3.81-8.69,5.85-.12.08-.6-.44-1.13-1.23a7.09,7.09,0,0,0-5.87-3.53c-3.79-.26-6.23,1.73-6.21,5a4.58,4.58,0,0,0,.54,2.34c.83,1.73,2.38,2.76,7.24,4.86,8.95,3.85,12.78,6.39,15.16,10,2.66,4,3.25,10.46,1.45,15.24-2,5.2-6.9,8.73-13.83,9.9a38.32,38.32,0,0,1-9.52-.1A23,23,0,0,1,80,109.19c-1.15-1.27-3.39-4.58-3.25-4.82a9.34,9.34,0,0,1,1.15-.73L82.5,101l3.59-2.08.75,1.11a16.78,16.78,0,0,0,4.74,4.54c4,2.1,9.46,1.81,12.16-.62a5.43,5.43,0,0,0,.69-6.92c-1-1.39-3-2.56-8.59-5-6.45-2.78-9.23-4.5-11.77-7.24a16.48,16.48,0,0,1-3.43-6.25,25,25,0,0,1-.22-8c1.33-6.23,6-10.58,12.82-11.87A31.66,31.66,0,0,1,102.73,58.93ZM73.39,64.15l0,5.12H57.16V115.5H45.65V69.26H29.38v-5a49.19,49.19,0,0,1,.14-5.16c.06-.08,10-.12,22-.1L73.33,59Z">
+            </path>
+          </svg>
+        </div>
+        <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+          <svg class="h-12" viewBox="0 0 128 128">
+            <path class="text-gray-400" fill="currentColor"
+              d="M2,63.91v62.5H127V1.41H2Zm100.73-5a15.56,15.56,0,0,1,7.82,4.5,20.58,20.58,0,0,1,3,4c0,.16-5.4,3.81-8.69,5.85-.12.08-.6-.44-1.13-1.23a7.09,7.09,0,0,0-5.87-3.53c-3.79-.26-6.23,1.73-6.21,5a4.58,4.58,0,0,0,.54,2.34c.83,1.73,2.38,2.76,7.24,4.86,8.95,3.85,12.78,6.39,15.16,10,2.66,4,3.25,10.46,1.45,15.24-2,5.2-6.9,8.73-13.83,9.9a38.32,38.32,0,0,1-9.52-.1A23,23,0,0,1,80,109.19c-1.15-1.27-3.39-4.58-3.25-4.82a9.34,9.34,0,0,1,1.15-.73L82.5,101l3.59-2.08.75,1.11a16.78,16.78,0,0,0,4.74,4.54c4,2.1,9.46,1.81,12.16-.62a5.43,5.43,0,0,0,.69-6.92c-1-1.39-3-2.56-8.59-5-6.45-2.78-9.23-4.5-11.77-7.24a16.48,16.48,0,0,1-3.43-6.25,25,25,0,0,1-.22-8c1.33-6.23,6-10.58,12.82-11.87A31.66,31.66,0,0,1,102.73,58.93ZM73.39,64.15l0,5.12H57.16V115.5H45.65V69.26H29.38v-5a49.19,49.19,0,0,1,.14-5.16c.06-.08,10-.12,22-.1L73.33,59Z">
+            </path>
+          </svg>
+        </div>
+        <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+          <svg class="h-12" viewBox="0 0 128 128">
+            <path class="text-gray-400" fill="currentColor"
+              d="M2,63.91v62.5H127V1.41H2Zm100.73-5a15.56,15.56,0,0,1,7.82,4.5,20.58,20.58,0,0,1,3,4c0,.16-5.4,3.81-8.69,5.85-.12.08-.6-.44-1.13-1.23a7.09,7.09,0,0,0-5.87-3.53c-3.79-.26-6.23,1.73-6.21,5a4.58,4.58,0,0,0,.54,2.34c.83,1.73,2.38,2.76,7.24,4.86,8.95,3.85,12.78,6.39,15.16,10,2.66,4,3.25,10.46,1.45,15.24-2,5.2-6.9,8.73-13.83,9.9a38.32,38.32,0,0,1-9.52-.1A23,23,0,0,1,80,109.19c-1.15-1.27-3.39-4.58-3.25-4.82a9.34,9.34,0,0,1,1.15-.73L82.5,101l3.59-2.08.75,1.11a16.78,16.78,0,0,0,4.74,4.54c4,2.1,9.46,1.81,12.16-.62a5.43,5.43,0,0,0,.69-6.92c-1-1.39-3-2.56-8.59-5-6.45-2.78-9.23-4.5-11.77-7.24a16.48,16.48,0,0,1-3.43-6.25,25,25,0,0,1-.22-8c1.33-6.23,6-10.58,12.82-11.87A31.66,31.66,0,0,1,102.73,58.93ZM73.39,64.15l0,5.12H57.16V115.5H45.65V69.26H29.38v-5a49.19,49.19,0,0,1,.14-5.16c.06-.08,10-.12,22-.1L73.33,59Z">
+            </path>
+          </svg>
+        </div>
+        <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+          <svg class="h-12" viewBox="0 0 128 128">
+            <path class="text-gray-400" fill="currentColor"
+              d="M2,63.91v62.5H127V1.41H2Zm100.73-5a15.56,15.56,0,0,1,7.82,4.5,20.58,20.58,0,0,1,3,4c0,.16-5.4,3.81-8.69,5.85-.12.08-.6-.44-1.13-1.23a7.09,7.09,0,0,0-5.87-3.53c-3.79-.26-6.23,1.73-6.21,5a4.58,4.58,0,0,0,.54,2.34c.83,1.73,2.38,2.76,7.24,4.86,8.95,3.85,12.78,6.39,15.16,10,2.66,4,3.25,10.46,1.45,15.24-2,5.2-6.9,8.73-13.83,9.9a38.32,38.32,0,0,1-9.52-.1A23,23,0,0,1,80,109.19c-1.15-1.27-3.39-4.58-3.25-4.82a9.34,9.34,0,0,1,1.15-.73L82.5,101l3.59-2.08.75,1.11a16.78,16.78,0,0,0,4.74,4.54c4,2.1,9.46,1.81,12.16-.62a5.43,5.43,0,0,0,.69-6.92c-1-1.39-3-2.56-8.59-5-6.45-2.78-9.23-4.5-11.77-7.24a16.48,16.48,0,0,1-3.43-6.25,25,25,0,0,1-.22-8c1.33-6.23,6-10.58,12.82-11.87A31.66,31.66,0,0,1,102.73,58.93ZM73.39,64.15l0,5.12H57.16V115.5H45.65V69.26H29.38v-5a49.19,49.19,0,0,1,.14-5.16c.06-.08,10-.12,22-.1L73.33,59Z">
+            </path>
+          </svg>
+        </div>
+        <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+          <svg class="h-12" viewBox="0 0 128 128">
+            <path class="text-gray-400" fill="currentColor"
+              d="M2,63.91v62.5H127V1.41H2Zm100.73-5a15.56,15.56,0,0,1,7.82,4.5,20.58,20.58,0,0,1,3,4c0,.16-5.4,3.81-8.69,5.85-.12.08-.6-.44-1.13-1.23a7.09,7.09,0,0,0-5.87-3.53c-3.79-.26-6.23,1.73-6.21,5a4.58,4.58,0,0,0,.54,2.34c.83,1.73,2.38,2.76,7.24,4.86,8.95,3.85,12.78,6.39,15.16,10,2.66,4,3.25,10.46,1.45,15.24-2,5.2-6.9,8.73-13.83,9.9a38.32,38.32,0,0,1-9.52-.1A23,23,0,0,1,80,109.19c-1.15-1.27-3.39-4.58-3.25-4.82a9.34,9.34,0,0,1,1.15-.73L82.5,101l3.59-2.08.75,1.11a16.78,16.78,0,0,0,4.74,4.54c4,2.1,9.46,1.81,12.16-.62a5.43,5.43,0,0,0,.69-6.92c-1-1.39-3-2.56-8.59-5-6.45-2.78-9.23-4.5-11.77-7.24a16.48,16.48,0,0,1-3.43-6.25,25,25,0,0,1-.22-8c1.33-6.23,6-10.58,12.82-11.87A31.66,31.66,0,0,1,102.73,58.93ZM73.39,64.15l0,5.12H57.16V115.5H45.65V69.26H29.38v-5a49.19,49.19,0,0,1,.14-5.16c.06-.08,10-.12,22-.1L73.33,59Z">
+            </path>
+          </svg>
+        </div>
+        <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+          <svg class="h-12" viewBox="0 0 128 128">
+            <path class="text-gray-400" fill="currentColor"
+              d="M2,63.91v62.5H127V1.41H2Zm100.73-5a15.56,15.56,0,0,1,7.82,4.5,20.58,20.58,0,0,1,3,4c0,.16-5.4,3.81-8.69,5.85-.12.08-.6-.44-1.13-1.23a7.09,7.09,0,0,0-5.87-3.53c-3.79-.26-6.23,1.73-6.21,5a4.58,4.58,0,0,0,.54,2.34c.83,1.73,2.38,2.76,7.24,4.86,8.95,3.85,12.78,6.39,15.16,10,2.66,4,3.25,10.46,1.45,15.24-2,5.2-6.9,8.73-13.83,9.9a38.32,38.32,0,0,1-9.52-.1A23,23,0,0,1,80,109.19c-1.15-1.27-3.39-4.58-3.25-4.82a9.34,9.34,0,0,1,1.15-.73L82.5,101l3.59-2.08.75,1.11a16.78,16.78,0,0,0,4.74,4.54c4,2.1,9.46,1.81,12.16-.62a5.43,5.43,0,0,0,.69-6.92c-1-1.39-3-2.56-8.59-5-6.45-2.78-9.23-4.5-11.77-7.24a16.48,16.48,0,0,1-3.43-6.25,25,25,0,0,1-.22-8c1.33-6.23,6-10.58,12.82-11.87A31.66,31.66,0,0,1,102.73,58.93ZM73.39,64.15l0,5.12H57.16V115.5H45.65V69.26H29.38v-5a49.19,49.19,0,0,1,.14-5.16c.06-.08,10-.12,22-.1L73.33,59Z">
+            </path>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>

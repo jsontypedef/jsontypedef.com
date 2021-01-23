@@ -1,0 +1,7 @@
+baseURL = "https://jsontypedef.com/"
+languageCode = "en-us"
+title = "JSON Typedef · Schemas you can generate code from"
+
+[markup]
+    [markup.highlight]
+    style = "vs"
