@@ -29,18 +29,19 @@
         </svg>
       </div>
 
-      <div class="relative pt-6 pb-16 sm:pb-24">
+      <div x-data="{ isOpen: false }" class="relative pt-6 pb-16 sm:pb-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
           <nav class="relative flex items-center justify-between sm:h-10 md:justify-center" aria-label="Global">
             <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
               <div class="flex items-center justify-between w-full md:w-auto">
-                <a href="#">
+                <a href="/">
                   <span class="sr-only">JSON Type Definition</span>
                   <img class="h-8 w-auto sm:h-12" src="/jtd_logo.svg" alt="logo">
                 </a>
                 <div class="-mr-2 flex items-center md:hidden">
                   <button type="button"
-                    class="bg-gray-50 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                    @click="isOpen = !isOpen"
+                    class="bg-gray-50 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500"
                     id="main-menu" aria-haspopup="true">
                     <span class="sr-only">Open main menu</span>
                     <!-- Heroicon name: menu -->
@@ -54,19 +55,23 @@
               </div>
             </div>
             <div class="hidden md:flex md:space-x-10">
-              <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Product</a>
+              <a href="/docs" class="font-medium text-gray-500 hover:text-gray-900">
+                Docs
+              </a>
 
-              <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Features</a>
+              <a href="/docs/implementations" class="font-medium text-gray-500 hover:text-gray-900">
+                Implementations
+              </a>
 
-              <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Marketplace</a>
-
-              <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Company</a>
+              <a href="/docs/jtd-in-5-minutes" class="font-medium text-gray-500 hover:text-gray-900">
+                Tutorial
+              </a>
             </div>
             <div class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
               <span class="inline-flex rounded-md shadow">
-                <a href="#"
+                <a href="/docs/quick-start"
                   class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-green-600 bg-white hover:text-green-500">
-                  Read the Docs
+                  Quick Start
                 </a>
               </span>
             </div>
@@ -83,17 +88,19 @@
                 From: "opacity-100 scale-100"
                 To: "opacity-0 scale-95"
             -->
-        <div class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+        <div class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden" :class="{'hidden': !isOpen}">
           <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
             <div class="px-5 pt-4 flex items-center justify-between">
               <div>
-                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="">
+                <img class="h-8 w-auto" src="/jtd_logo.svg" alt="logo">
+                <!-- <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-green-600.svg" alt=""> -->
               </div>
               <div class="-mr-2">
                 <button type="button"
-                  class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                  @click="isOpen = !isOpen"
+                  class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500">
                   <span class="sr-only">Close main menu</span>
-                  <!-- Heroicon name: x -->
+
                   <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -103,27 +110,23 @@
             </div>
             <div role="menu" aria-orientation="vertical" aria-labelledby="main-menu">
               <div class="px-2 pt-2 pb-3 space-y-1" role="none">
-                <a href="#"
+                <a href="/docs"
                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-                  role="menuitem">Product</a>
+                  role="menuitem">Docs</a>
 
-                <a href="#"
+                <a href="/docs/implementations"
                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-                  role="menuitem">Features</a>
+                  role="menuitem">Implementations</a>
 
-                <a href="#"
+                <a href="/docs/jtd-in-5-minutes"
                   class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-                  role="menuitem">Marketplace</a>
-
-                <a href="#"
-                  class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-                  role="menuitem">Company</a>
+                  role="menuitem">Tutorial</a>
               </div>
               <div role="none">
-                <a href="#"
-                  class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100 hover:text-indigo-700"
+                <a href="/docs/quick-start"
+                  class="block w-full px-5 py-3 text-center font-medium text-green-600 bg-gray-50 hover:bg-gray-100 hover:text-green-700"
                   role="menuitem">
-                  Log in
+                  Quick Start
                 </a>
               </div>
             </div>
@@ -156,7 +159,7 @@
                   user.jtd.json
                 </dt>
               </div>
-              <div class="px-4 sm:p-6">
+              <div class="px-4 p-6 overflow-x-auto">
                 <dd class="font-semibold">
                   {{ $user := resources.Get "snippets/user.jtd.json" }}
                   <code>
@@ -170,43 +173,43 @@
               <div class="px-4 py-5 sm:p-6 border-b border-gray-200">
                 <dt class="text-sm font-medium text-gray-500 truncate h-8 flex items-center">
                   <button type="button" @click="tab = 'ts'"
-                    :class="{'bg-indigo-50 text-indigo-700': tab === 'ts', 'text-gray-500 hover:text-indigo-600 focus:text-indigo-600': tab !== 'ts'}"
-                    class="inline-block rounded-lg font-medium leading-none py-2 px-3 focus:outline-none bg-indigo-50 text-indigo-700">
+                    :class="{'bg-green-50 text-green-700': tab === 'ts', 'text-gray-500 hover:text-green-600 focus:text-green-600': tab !== 'ts'}"
+                    class="inline-block rounded-lg font-medium leading-none py-2 px-3 focus:outline-none bg-green-50 text-green-700">
                     TypeScript
                   </button>
 
                   <button type="button" @click="tab = 'go'"
-                    :class="{'bg-indigo-50 text-indigo-700': tab === 'go', 'text-gray-500 hover:text-indigo-600 focus:text-indigo-600': tab !== 'go'}"
-                    class="inline-block rounded-lg font-medium leading-none py-2 px-3 focus:outline-none bg-indigo-50 text-indigo-700">
+                    :class="{'bg-green-50 text-green-700': tab === 'go', 'text-gray-500 hover:text-green-600 focus:text-green-600': tab !== 'go'}"
+                    class="inline-block rounded-lg font-medium leading-none py-2 px-3 focus:outline-none bg-green-50 text-green-700">
                     Go
                   </button>
 
                   <button type="button" @click="tab = 'java'"
-                    :class="{'bg-indigo-50 text-indigo-700': tab === 'java', 'text-gray-500 hover:text-indigo-600 focus:text-indigo-600': tab !== 'java'}"
-                    class="inline-block rounded-lg font-medium leading-none py-2 px-3 focus:outline-none bg-indigo-50 text-indigo-700">
+                    :class="{'bg-green-50 text-green-700': tab === 'java', 'text-gray-500 hover:text-green-600 focus:text-green-600': tab !== 'java'}"
+                    class="inline-block rounded-lg font-medium leading-none py-2 px-3 focus:outline-none bg-green-50 text-green-700">
                     Java
                   </button>
 
                   <button type="button" @click="tab = 'csharp'"
-                    :class="{'bg-indigo-50 text-indigo-700': tab === 'csharp', 'text-gray-500 hover:text-indigo-600 focus:text-indigo-600': tab !== 'csharp'}"
-                    class="inline-block rounded-lg font-medium leading-none py-2 px-3 focus:outline-none bg-indigo-50 text-indigo-700">
+                    :class="{'bg-green-50 text-green-700': tab === 'csharp', 'text-gray-500 hover:text-green-600 focus:text-green-600': tab !== 'csharp'}"
+                    class="inline-block rounded-lg font-medium leading-none py-2 px-3 focus:outline-none bg-green-50 text-green-700">
                     C#
                   </button>
 
                   <button type="button" @click="tab = 'python'"
-                    :class="{'bg-indigo-50 text-indigo-700': tab === 'python', 'text-gray-500 hover:text-indigo-600 focus:text-indigo-600': tab !== 'python'}"
-                    class="inline-block rounded-lg font-medium leading-none py-2 px-3 focus:outline-none bg-indigo-50 text-indigo-700">
+                    :class="{'bg-green-50 text-green-700': tab === 'python', 'text-gray-500 hover:text-green-600 focus:text-green-600': tab !== 'python'}"
+                    class="inline-block rounded-lg font-medium leading-none py-2 px-3 focus:outline-none bg-green-50 text-green-700">
                     Python
                   </button>
 
                   <button type="button" @click="tab = 'rust'"
-                    :class="{'bg-indigo-50 text-indigo-700': tab === 'rust', 'text-gray-500 hover:text-indigo-600 focus:text-indigo-600': tab !== 'rust'}"
-                    class="inline-block rounded-lg font-medium leading-none py-2 px-3 focus:outline-none bg-indigo-50 text-indigo-700">
+                    :class="{'bg-green-50 text-green-700': tab === 'rust', 'text-gray-500 hover:text-green-600 focus:text-green-600': tab !== 'rust'}"
+                    class="inline-block rounded-lg font-medium leading-none py-2 px-3 focus:outline-none bg-green-50 text-green-700">
                     Rust
                   </button>
                 </dt>
               </div>
-              <dd class="px-4 sm:p-6 font-semibold text-gray-900 h-72 max-h-72 overflow-auto">
+              <dd class="px-4 p-6 font-semibold text-gray-900 h-72 max-h-72 overflow-auto">
                 <div :class="{'hidden': tab !== 'ts'}">
                   {{ $ts := resources.Get "snippets/user.ts" }}
                   <code>
@@ -329,7 +332,7 @@
 
   <div class="relative bg-white py-16 sm:py-24 lg:py-32">
     <div class="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
-      <h2 class="text-base font-semibold tracking-wider text-indigo-600 uppercase">
+      <h2 class="text-base font-semibold tracking-wider text-green-600 uppercase">
         Why JSON Typedef?
       </h2>
       <p class="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
@@ -346,7 +349,7 @@
             <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8">
               <div class="-mt-6">
                 <div>
-                  <span class="inline-flex items-center justify-center p-3 bg-indigo-500 rounded-md shadow-lg">
+                  <span class="inline-flex items-center justify-center p-3 bg-green-500 rounded-md shadow-lg">
                     <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                       stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -368,7 +371,7 @@
             <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8">
               <div class="-mt-6">
                 <div>
-                  <span class="inline-flex items-center justify-center p-3 bg-indigo-500 rounded-md shadow-lg">
+                  <span class="inline-flex items-center justify-center p-3 bg-green-500 rounded-md shadow-lg">
                     <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                       stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -391,7 +394,7 @@
             <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8">
               <div class="-mt-6">
                 <div>
-                  <span class="inline-flex items-center justify-center p-3 bg-indigo-500 rounded-md shadow-lg">
+                  <span class="inline-flex items-center justify-center p-3 bg-green-500 rounded-md shadow-lg">
                     <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                       stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -414,7 +417,7 @@
             <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8">
               <div class="-mt-6">
                 <div>
-                  <span class="inline-flex items-center justify-center p-3 bg-indigo-500 rounded-md shadow-lg">
+                  <span class="inline-flex items-center justify-center p-3 bg-green-500 rounded-md shadow-lg">
                     <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                       stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -436,7 +439,7 @@
             <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8">
               <div class="-mt-6">
                 <div>
-                  <span class="inline-flex items-center justify-center p-3 bg-indigo-500 rounded-md shadow-lg">
+                  <span class="inline-flex items-center justify-center p-3 bg-green-500 rounded-md shadow-lg">
                     <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                     </svg>
@@ -456,7 +459,7 @@
             <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8">
               <div class="-mt-6">
                 <div>
-                  <span class="inline-flex items-center justify-center p-3 bg-indigo-500 rounded-md shadow-lg">
+                  <span class="inline-flex items-center justify-center p-3 bg-green-500 rounded-md shadow-lg">
                     <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                       stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -478,6 +481,40 @@
       </div>
     </div>
   </div>
+
+  <div class="bg-green-50">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-24 lg:px-8 lg:flex lg:items-center lg:justify-between">
+      <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl">
+        <span class="block">Ready to be more productive with JSON?</span>
+        <span class="block text-green-600">Dig into the docs.</span>
+      </h2>
+      <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+        <div class="inline-flex rounded-md shadow">
+          <a href="/docs" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700">
+            Get started
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-white">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
+      <div class="flex justify-center space-x-6 md:order-2">
+        <a href="https://github.com/jsontypedef" class="text-gray-400 hover:text-gray-500">
+          <span class="sr-only">GitHub</span>
+          <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+      <div class="mt-8 md:mt-0 md:order-1">
+        <p class="text-center text-base text-gray-400">
+          Copyright &copy; JSON Type Definition Contributors
+        </p>
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>
