@@ -1,0 +1,18 @@
+<pre style="background-color:#fff"><span style="color:#00f">use</span> chrono::{DateTime, FixedOffset};
+<span style="color:#00f">use</span> serde::{Deserialize, Serialize};
+
+<span style="color:#00f">#[derive(Serialize, Deserialize)]</span>
+<span style="color:#00f">pub</span> <span style="color:#00f">struct</span> <span style="color:#2b91af">User</span> {
+    <span style="color:#00f">#[serde(rename = </span><span style="color:#a31515">&#34;createdAt&#34;</span><span style="color:#00f">)]</span>
+    <span style="color:#00f">pub</span> createdAt: <span style="color:#2b91af">DateTime</span>&lt;FixedOffset&gt;,
+
+    <span style="color:#00f">#[serde(rename = </span><span style="color:#a31515">&#34;id&#34;</span><span style="color:#00f">)]</span>
+    <span style="color:#00f">pub</span> id: String,
+
+    <span style="color:#00f">#[serde(rename = </span><span style="color:#a31515">&#34;isAdmin&#34;</span><span style="color:#00f">)]</span>
+    <span style="color:#00f">pub</span> isAdmin: <span style="color:#2b91af">bool</span>,
+
+    <span style="color:#00f">#[serde(rename = </span><span style="color:#a31515">&#34;karma&#34;</span><span style="color:#00f">)]</span>
+    <span style="color:#00f">pub</span> karma: <span style="color:#2b91af">i32</span>,
+}
+</pre>

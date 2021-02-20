@@ -1,0 +1,21 @@
+<pre style="background-color:#fff"><span style="color:#00f">using</span> System;
+<span style="color:#00f">using</span> System.Text.Json.Serialization;
+
+<span style="color:#00f">namespace</span> Contoso.Example
+{
+    <span style="color:#00f">public</span> <span style="color:#00f">class</span> <span style="color:#2b91af">User</span>
+    {
+        [JsonPropertyName(&#34;createdAt&#34;)]
+        <span style="color:#00f">public</span> DateTimeOffset CreatedAt { <span style="color:#00f">get</span>; <span style="color:#00f">set</span>; }
+
+        [JsonPropertyName(&#34;id&#34;)]
+        <span style="color:#00f">public</span> <span style="color:#2b91af">string</span> Id { <span style="color:#00f">get</span>; <span style="color:#00f">set</span>; }
+
+        [JsonPropertyName(&#34;isAdmin&#34;)]
+        <span style="color:#00f">public</span> <span style="color:#2b91af">bool</span> IsAdmin { <span style="color:#00f">get</span>; <span style="color:#00f">set</span>; }
+
+        [JsonPropertyName(&#34;karma&#34;)]
+        <span style="color:#00f">public</span> <span style="color:#2b91af">int</span> Karma { <span style="color:#00f">get</span>; <span style="color:#00f">set</span>; }
+    }
+}
+</pre>

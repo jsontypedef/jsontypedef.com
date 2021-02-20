@@ -1,0 +1,55 @@
+<pre style="background-color:#fff"><span style="color:#00f">from</span> dataclasses <span style="color:#00f">import</span> dataclass
+<span style="color:#00f">from</span> typing <span style="color:#00f">import</span> Any, Optional, Union, get_args, get_origin
+
+@dataclass
+<span style="color:#00f">class</span> <span style="color:#2b91af">User</span>:
+    created_at: <span style="color:#a31515">&#39;str&#39;</span>
+    id: <span style="color:#a31515">&#39;str&#39;</span>
+    is_admin: <span style="color:#a31515">&#39;bool&#39;</span>
+    karma: <span style="color:#a31515">&#39;int&#39;</span>
+
+    @classmethod
+    <span style="color:#00f">def</span> from_json(cls, data) -&gt; <span style="color:#a31515">&#34;User&#34;</span>:
+        <span style="color:#a31515">&#34;&#34;&#34;
+</span><span style="color:#a31515">        Construct an instance of this class from parsed JSON data.
+</span><span style="color:#a31515">        &#34;&#34;&#34;</span>
+
+        <span style="color:#00f">return</span> cls(
+            _from_json(str, data.get(<span style="color:#a31515">&#34;createdAt&#34;</span>)),
+            _from_json(str, data.get(<span style="color:#a31515">&#34;id&#34;</span>)),
+            _from_json(bool, data.get(<span style="color:#a31515">&#34;isAdmin&#34;</span>)),
+            _from_json(int, data.get(<span style="color:#a31515">&#34;karma&#34;</span>)),
+        )
+
+    <span style="color:#00f">def</span> to_json(self):
+        <span style="color:#a31515">&#34;&#34;&#34;
+</span><span style="color:#a31515">        Generate JSON-ready data from an instance of this class.
+</span><span style="color:#a31515">        &#34;&#34;&#34;</span>
+
+        out = {}
+        out[<span style="color:#a31515">&#34;createdAt&#34;</span>] = _to_json(self.created_at)
+        out[<span style="color:#a31515">&#34;id&#34;</span>] = _to_json(self.id)
+        out[<span style="color:#a31515">&#34;isAdmin&#34;</span>] = _to_json(self.is_admin)
+        out[<span style="color:#a31515">&#34;karma&#34;</span>] = _to_json(self.karma)
+        <span style="color:#00f">return</span> out
+
+<span style="color:#00f">def</span> _from_json(cls, data):
+    <span style="color:#00f">if</span> data <span style="color:#00f">is</span> None <span style="color:#00f">or</span> cls <span style="color:#00f">in</span> [bool, int, float, str, object] <span style="color:#00f">or</span> cls <span style="color:#00f">is</span> Any:
+        <span style="color:#00f">return</span> data
+    <span style="color:#00f">if</span> get_origin(cls) <span style="color:#00f">is</span> Union:
+        <span style="color:#00f">return</span> _from_json(get_args(cls)[0], data)
+    <span style="color:#00f">if</span> get_origin(cls) <span style="color:#00f">is</span> list:
+        <span style="color:#00f">return</span> [_from_json(get_args(cls)[0], d) <span style="color:#00f">for</span> d <span style="color:#00f">in</span> data]
+    <span style="color:#00f">if</span> get_origin(cls) <span style="color:#00f">is</span> dict:
+        <span style="color:#00f">return</span> { k: _from_json(get_args(cls)[1], v) <span style="color:#00f">for</span> k, v <span style="color:#00f">in</span> data.items() }
+    <span style="color:#00f">return</span> cls.from_json(data)
+
+<span style="color:#00f">def</span> _to_json(data):
+    <span style="color:#00f">if</span> data <span style="color:#00f">is</span> None <span style="color:#00f">or</span> type(data) <span style="color:#00f">in</span> [bool, int, float, str, object]:
+        <span style="color:#00f">return</span> data
+    <span style="color:#00f">if</span> type(data) <span style="color:#00f">is</span> list:
+        <span style="color:#00f">return</span> [_to_json(d) <span style="color:#00f">for</span> d <span style="color:#00f">in</span> data]
+    <span style="color:#00f">if</span> type(data) <span style="color:#00f">is</span> dict:
+        <span style="color:#00f">return</span> { k: _to_json(v) <span style="color:#00f">for</span> k, v <span style="color:#00f">in</span> data.items() }
+    <span style="color:#00f">return</span> data.to_json()
+</pre>

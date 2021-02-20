@@ -1,0 +1,11 @@
+<pre style="background-color:#fff"><span style="color:#00f">package</span> user
+
+<span style="color:#00f">import</span> <span style="color:#a31515">&#34;time&#34;</span>
+
+<span style="color:#00f">type</span> User <span style="color:#00f">struct</span> {
+	CreatedAt time.Time <span style="color:#a31515">`json:&#34;created_at&#34;`</span>
+	ID        <span style="color:#2b91af">string</span>    <span style="color:#a31515">`json:&#34;id&#34;`</span>
+	IsAdmin   <span style="color:#2b91af">bool</span>      <span style="color:#a31515">`json:&#34;isAdmin&#34;`</span>
+	Karma     <span style="color:#2b91af">int32</span>     <span style="color:#a31515">`json:&#34;karma&#34;`</span>
+}
+</pre>

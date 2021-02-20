@@ -1,0 +1,56 @@
+<pre style="background-color:#fff"><span style="color:#00f">package</span> com.example;
+
+<span style="color:#00f">import</span> com.fasterxml.jackson.annotation.JsonProperty;
+<span style="color:#00f">import</span> com.fasterxml.jackson.databind.annotation.JsonSerialize;
+<span style="color:#00f">import</span> java.time.OffsetDateTime;
+
+@JsonSerialize
+<span style="color:#00f">public</span> <span style="color:#00f">class</span> <span style="color:#2b91af">User</span> {
+    @JsonProperty(<span style="color:#a31515">&#34;createdAt&#34;</span>)
+    <span style="color:#00f">private</span> OffsetDateTime createdAt;
+
+    @JsonProperty(<span style="color:#a31515">&#34;id&#34;</span>)
+    <span style="color:#00f">private</span> String id;
+
+    @JsonProperty(<span style="color:#a31515">&#34;isAdmin&#34;</span>)
+    <span style="color:#00f">private</span> Boolean isAdmin;
+
+    @JsonProperty(<span style="color:#a31515">&#34;karma&#34;</span>)
+    <span style="color:#00f">private</span> Integer karma;
+
+    <span style="color:#00f">public</span> User() {
+    }
+
+    <span style="color:#00f">public</span> OffsetDateTime getCreatedAt() {
+        <span style="color:#00f">return</span> <span style="color:#00f">this</span>.createdAt;
+    }
+
+    <span style="color:#00f">public</span> <span style="color:#2b91af">void</span> setCreatedAt(OffsetDateTime createdAt) {
+        <span style="color:#00f">this</span>.createdAt = createdAt;
+    }
+
+    <span style="color:#00f">public</span> String getId() {
+        <span style="color:#00f">return</span> <span style="color:#00f">this</span>.id;
+    }
+
+    <span style="color:#00f">public</span> <span style="color:#2b91af">void</span> setId(String id) {
+        <span style="color:#00f">this</span>.id = id;
+    }
+
+    <span style="color:#00f">public</span> Boolean getIsAdmin() {
+        <span style="color:#00f">return</span> <span style="color:#00f">this</span>.isAdmin;
+    }
+
+    <span style="color:#00f">public</span> <span style="color:#2b91af">void</span> setIsAdmin(Boolean isAdmin) {
+        <span style="color:#00f">this</span>.isAdmin = isAdmin;
+    }
+
+    <span style="color:#00f">public</span> Integer getKarma() {
+        <span style="color:#00f">return</span> <span style="color:#00f">this</span>.karma;
+    }
+
+    <span style="color:#00f">public</span> <span style="color:#2b91af">void</span> setKarma(Integer karma) {
+        <span style="color:#00f">this</span>.karma = karma;
+    }
+}
+</pre>

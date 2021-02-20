@@ -146,9 +146,9 @@
               </div>
               <div class="px-4 p-6 overflow-x-auto">
                 <dd class="font-semibold">
-                  {{ $user := resources.Get "snippets/user.jtd.json" }}
+                  {{ $user := resources.Get "rendered_snippets/user.jtd.json.html" }}
                   <code>
-                    <pre>{{ highlight $user.Content "json" "" }}</pre>
+                    <pre>{{ safeHTML $user.Content }}</pre>
                   </code>
                 </dd>
               </div>
@@ -196,44 +196,44 @@
               </div>
               <dd class="px-4 p-6 font-semibold text-gray-900 h-72 max-h-72 overflow-auto">
                 <div :class="{'hidden': tab !== 'ts'}">
-                  {{ $ts := resources.Get "snippets/user.ts" }}
+                  {{ $ts := resources.Get "rendered_snippets/user.ts.html" }}
                   <code>
-                    <pre>{{ highlight $ts.Content "typescript" "" }}</pre>
+                    <pre>{{ safeHTML $ts.Content }}</pre>
                   </code>
                 </div>
 
                 <div :class="{'hidden': tab !== 'go'}">
-                  {{ $go := resources.Get "snippets/user.go" }}
+                  {{ $go := resources.Get "rendered_snippets/user.go.html" }}
                   <code>
-                    <pre>{{ highlight $go.Content "go" "" }}</pre>
+                    <pre>{{ safeHTML $go.Content }}</pre>
                   </code>
                 </div>
 
                 <div :class="{'hidden': tab !== 'java'}">
-                  {{ $java := resources.Get "snippets/User.java" }}
+                  {{ $java := resources.Get "rendered_snippets/User.java.html" }}
                   <code>
-                    <pre>{{ highlight $java.Content "java" "" }}</pre>
+                    <pre>{{ safeHTML $java.Content }}</pre>
                   </code>
                 </div>
 
                 <div :class="{'hidden': tab !== 'csharp'}">
-                  {{ $cs := resources.Get "snippets/User.cs" }}
+                  {{ $cs := resources.Get "rendered_snippets/User.cs.html" }}
                   <code>
-                    <pre>{{ highlight $cs.Content "csharp" "" }}</pre>
+                    <pre>{{ safeHTML $cs.Content }}</pre>
                   </code>
                 </div>
 
                 <div :class="{'hidden': tab !== 'python'}">
-                  {{ $py := resources.Get "snippets/user.py" }}
+                  {{ $py := resources.Get "rendered_snippets/user.py.html" }}
                   <code>
-                    <pre>{{ highlight $py.Content "python" "" }}</pre>
+                    <pre>{{ safeHTML $py.Content }}</pre>
                   </code>
                 </div>
 
                 <div :class="{'hidden': tab !== 'rust'}">
-                  {{ $rs := resources.Get "snippets/user.rs" }}
+                  {{ $rs := resources.Get "rendered_snippets/user.rs.html" }}
                   <code>
-                    <pre>{{ highlight $rs.Content "rust" "" }}</pre>
+                    <pre>{{ safeHTML $rs.Content }}</pre>
                   </code>
                 </div>
               </dd>
