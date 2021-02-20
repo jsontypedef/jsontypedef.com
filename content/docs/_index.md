@@ -2,6 +2,7 @@
 # Note: this is the only page in /docs that needs to specify "prose" itself.
 # This is because it's the only page that wants to temporarily *escape* prose,
 # because we want to special-case the pretty article selector on this page.
+title: JSON Typedef Documentation
 ---
 
 <div class="prose prose-green">

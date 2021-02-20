@@ -14,6 +14,9 @@ module.exports = {
             'code::after': {
               content: "",
             },
+            'pre': {
+              color: 'unset',
+            }
           },
         },
       },

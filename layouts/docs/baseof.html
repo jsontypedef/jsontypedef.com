@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-{{ partial "head" }}
+{{ partial "head" . }}
 
 <body>
   <div class="min-h-screen bg-gray-100">
@@ -10,7 +10,7 @@
         <div class="relative py-5 flex items-center justify-center lg:justify-between">
           <!-- Logo -->
           <div class="absolute left-0 flex-shrink-0 lg:static">
-            <a href="/docs" class="flex items-center">
+            <a href="/" class="flex items-center">
               <span class="sr-only">JSON Type Definition</span>
               <img class="inline-block h-8 w-auto" src="/jtd_logo_white.svg" alt="logo">
 
@@ -272,7 +272,7 @@
                     </li>
 
                     <li>
-                      <a href="/docs/jtd-in-5-minutes"
+                      <a href="/docs/implementations"
                         class="flex items-center px-3 hover:text-gray-900 transition-colors duration-200 mb-4 text-gray-900">
                         <div class="mr-3 rounded-md bg-green-500">
                           <svg class="h-6 w-6 p-1 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -315,7 +315,7 @@
 
                         <li>
                           <a class="px-3 py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500"
-                            href="/docs/jtd-infer">
+                            href="/docs/jtd-fuzz">
                             <span class="rounded-md absolute inset-0 bg-cyan-50 opacity-0"></span><span
                               class="relative">
                               Mocking / Fuzzing
