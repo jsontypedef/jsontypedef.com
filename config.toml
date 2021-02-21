@@ -7,3 +7,8 @@ style = "dracula"
 
 [markup.goldmark.renderer]
 unsafe = true
+
+[params]
+title = "JSON Type Definition"
+description = "Schemas for JSON, optimized for code generation"
+images = ["og_image.png"]
