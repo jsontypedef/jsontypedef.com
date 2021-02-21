@@ -18,8 +18,8 @@ using the generated code will vary a bit from language to language. For specific
 guidance for your preferred language, see:
 
 * [TypeScript-specific documentation](/docs/typescript-codegen)
-* [Go-specific documentation](/docs/Go-codegen)
-* [Java-specific documentation](/docs/Java-codegen)
+* [Go-specific documentation](/docs/go-codegen)
+* [Java-specific documentation](/docs/java-codegen)
 * [C#-specific documentation](/docs/csharp-codegen)
 * [Python-specific documentation](/docs/python-codegen)
 * [Rust-specific documentation](/docs/rust-codegen)

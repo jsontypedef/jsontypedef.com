@@ -22,8 +22,8 @@ articles if you're just getting started:
 
 </div>
 
-<section class="mt-8 mb-8 flex space-x-4 text-white">
-    <div class="w-full p-4 rounded-lg bg-gradient-to-br from-blue-500 to-green-500">
+<section class="mt-8 mb-8 flex flex-col lg:flex-row lg:space-x-4 text-white">
+    <div class="lg:w-full p-4 rounded-lg bg-gradient-to-br from-blue-500 to-green-500">
         <h2 class="text-xl font-semibold">Learn JTD Quickly</h2>
         <span class="block mt-4">
             Everything you need to know about JTD, explained briskly.
@@ -35,7 +35,7 @@ articles if you're just getting started:
             </svg>
         </a>
     </div>
-    <div class="w-full p-4 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500">
+    <div class="lg:w-full p-4 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500">
         <h2 class="text-xl font-semibold">Start Validating</h2>
         <span class="block mt-4">
             Start using JTD in your preferred programming language.
@@ -47,7 +47,7 @@ articles if you're just getting started:
             </svg>
         </a>
     </div>
-    <div class="w-full p-4 rounded-lg bg-gradient-to-br from-yellow-500 to-red-500">
+    <div class="lg:w-full p-4 rounded-lg bg-gradient-to-br from-yellow-500 to-red-500">
         <h2 class="text-xl font-semibold">Generate Code</h2>
         <span class="block mt-4">
             Convert a JTD schema into native types in your programming language.
