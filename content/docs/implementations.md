@@ -17,6 +17,8 @@ here doesn't mean it's not good or somehow invalid.
 
 * [The `jtd` package on NPM](https://github.com/jsontypedef/json-typedef-js)
   implements validation. Written in TypeScript, runs in Node.js and browsers.
+* [The `ajv` package on NPM](https://github.com/ajv-validator/ajv) implements
+  validation starting with version v7.1.0.
 
 ### Code Generation
 
