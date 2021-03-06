@@ -1,0 +1,79 @@
+<pre style="background-color:#fff"><span style="color:#008000"># You can optionally generate .rbs too! (scroll to botton)</span>
+
+require <span style="color:#a31515">&#39;json&#39;</span>
+require <span style="color:#a31515">&#39;time&#39;</span>
+
+<span style="color:#00f">module</span> Example
+  <span style="color:#00f">class</span> <span style="color:#2b91af">User</span>
+    <span style="color:#00f">attr_accessor</span> <span style="color:#a31515">:created_at</span>
+    <span style="color:#00f">attr_accessor</span> <span style="color:#a31515">:id</span>
+    <span style="color:#00f">attr_accessor</span> <span style="color:#a31515">:is_admin</span>
+    <span style="color:#00f">attr_accessor</span> <span style="color:#a31515">:karma</span>
+
+    <span style="color:#00f">def</span> <span style="color:#2b91af">self</span>.from_json_data(data)
+      out = User.new
+      out.created_at = Example::from_json_data(DateTime, data[<span style="color:#a31515">&#34;createdAt&#34;</span>])
+      out.id = Example::from_json_data(String, data[<span style="color:#a31515">&#34;id&#34;</span>])
+      out.is_admin = Example::from_json_data(TrueClass, data[<span style="color:#a31515">&#34;isAdmin&#34;</span>])
+      out.karma = Example::from_json_data(Integer, data[<span style="color:#a31515">&#34;karma&#34;</span>])
+      out
+    <span style="color:#00f">end</span>
+
+    <span style="color:#00f">def</span> to_json_data
+      data = {}
+      data[<span style="color:#a31515">&#34;createdAt&#34;</span>] = Example::to_json_data(created_at)
+      data[<span style="color:#a31515">&#34;id&#34;</span>] = Example::to_json_data(id)
+      data[<span style="color:#a31515">&#34;isAdmin&#34;</span>] = Example::to_json_data(is_admin)
+      data[<span style="color:#a31515">&#34;karma&#34;</span>] = Example::to_json_data(karma)
+      data
+    <span style="color:#00f">end</span>
+  <span style="color:#00f">end</span>
+
+  <span style="color:#00f">private</span>
+
+  <span style="color:#00f">def</span> <span style="color:#2b91af">self</span>.from_json_data(type, data)
+    <span style="color:#00f">if</span> data.nil? || [Object, TrueClass, Integer, Float, String].include?(type)
+      data
+    <span style="color:#00f">elsif</span> type == DateTime
+      DateTime.rfc3339(data)
+    <span style="color:#00f">elsif</span> type.is_a?(Array)
+      data.map { |elem| from_json_data(type.first, elem) }
+    <span style="color:#00f">elsif</span> type.is_a?(Hash)
+      data.transform_values { |elem| from_json_data(type.values.first, elem) }
+    <span style="color:#00f">else</span>
+      type.from_json_data(data)
+    <span style="color:#00f">end</span>
+  <span style="color:#00f">end</span>
+
+  <span style="color:#00f">def</span> <span style="color:#2b91af">self</span>.to_json_data(data)
+    <span style="color:#00f">if</span> data.nil? || [TrueClass, FalseClass, Integer, Float, String].include?(data.class)
+      data
+    <span style="color:#00f">elsif</span> data.is_a?(DateTime)
+      data.rfc3339
+    <span style="color:#00f">elsif</span> data.is_a?(Array)
+      data.map { |elem| to_json_data(elem) }
+    <span style="color:#00f">elsif</span> data.is_a?(Hash)
+      data.transform_values { |elem| to_json_data(elem) }
+    <span style="color:#00f">else</span>
+      data.to_json_data
+    <span style="color:#00f">end</span>
+  <span style="color:#00f">end</span>
+<span style="color:#00f">end</span>
+
+<span style="color:#008000"># If you enable it, you&#39;ll also get a .rbs file:</span>
+
+<span style="color:#00f">module</span> Example
+  <span style="color:#00f">class</span> <span style="color:#2b91af">User</span>
+    <span style="color:#00f">attr_accessor</span> <span style="color:#a31515">created_at</span>: DateTime
+    <span style="color:#00f">attr_accessor</span> id: String
+    <span style="color:#00f">attr_accessor</span> <span style="color:#a31515">is_admin</span>: bool
+    <span style="color:#00f">attr_accessor</span> <span style="color:#a31515">karma</span>: Integer
+
+    <span style="color:#00f">def</span> <span style="color:#2b91af">self</span>.from_json_data: (untyped) -&gt; User
+    <span style="color:#00f">def</span> to_json_data: () -&gt; untyped
+  <span style="color:#00f">end</span>
+
+  <span style="color:#00f">def</span> <span style="color:#2b91af">self</span>.from_json_data: (untyped, untyped) -&gt; untyped
+  <span style="color:#00f">def</span> <span style="color:#2b91af">self</span>.to_json_data: (untyped) -&gt; untyped
+<span style="color:#00f">end</span>
+</pre>

@@ -71,6 +71,17 @@ here doesn't mean it's not good or somehow invalid.
 
 * [`jtd-codegen` supports CSharp](/docs/csharp-codegen).
 
+## Ruby
+
+### Validation
+
+* [The `jtd` gem on RubyGems](https://github.com/jsontypedef/json-typedef-ruby)
+  implements validation.
+
+### Code Generation
+
+* [`jtd-codegen` supports Ruby](/docs/ruby-codegen).
+
 ## Rust
 
 ### Validation
