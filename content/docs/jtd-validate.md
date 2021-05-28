@@ -47,7 +47,7 @@ brew install jsontypedef/jsontypedef/jtd-validate
 
 For all other platforms, you can install a prebuilt binary from [the latest
 release of
-`jtd-fuzz`](https://github.com/jsontypedef/json-typedef-fuzz/releases/latest).
+`jtd-validate`](https://github.com/jsontypedef/json-typedef-validate/releases/latest).
 Supported platforms are:
 
 - Windows (x86_64-pc-windows-gnu.zip)
