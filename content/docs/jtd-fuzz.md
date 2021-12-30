@@ -37,7 +37,7 @@ testing, load testing, or to seed your system with interesting data.
   development or staging environment databases are filled with seed data.
   `jtd-fuzz` can help you generate seed data.
 
-## Installing jtd-infer
+## Installing jtd-fuzz
 
 If you're on macOS, the easiest way to install `jtd-fuzz` is via Homebrew:
 
