@@ -40,7 +40,7 @@ articles if you're just getting started:
         <span class="block mt-4">
             Start using JTD in your preferred programming language.
         </span>
-        <a href="/docs/jtd-in-5-minutes" class="mt-6 bg-purple-800 bg-opacity-50 hover:bg-opacity-75 transition-colors duration-200 rounded-xl font-semibold py-2 px-4 inline-flex items-center">
+        <a href="/docs/implementations" class="mt-6 bg-purple-800 bg-opacity-50 hover:bg-opacity-75 transition-colors duration-200 rounded-xl font-semibold py-2 px-4 inline-flex items-center">
             Implementations
             <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -52,7 +52,7 @@ articles if you're just getting started:
         <span class="block mt-4">
             Convert a JTD schema into native types in your programming language.
         </span>
-        <a href="/docs/jtd-in-5-minutes" class="mt-6 bg-red-800 bg-opacity-50 hover:bg-opacity-75 transition-colors duration-200 rounded-xl font-semibold py-2 px-4 inline-flex items-center">
+        <a href="/docs/jtd-codegen" class="mt-6 bg-red-800 bg-opacity-50 hover:bg-opacity-75 transition-colors duration-200 rounded-xl font-semibold py-2 px-4 inline-flex items-center">
             jtd-codegen
             <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
