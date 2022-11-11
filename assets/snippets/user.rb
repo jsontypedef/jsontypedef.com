@@ -1,4 +1,4 @@
-# You can optionally generate .rbs too! (scroll to botton)
+# You can optionally generate .rbs too! (scroll to bottom)
 
 require 'json'
 require 'time'
