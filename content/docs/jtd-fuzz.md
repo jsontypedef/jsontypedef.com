@@ -9,7 +9,7 @@ dummy data, generate code, and more.
 
 `jtd-fuzz` is a tool that can generate example data from a JSON Typedef schema.
 This is also called "fuzzing". It lives on GitHub
-[here](https://github.com/jsontypedef/json-typedef-infer).
+[here](https://github.com/jsontypedef/json-typedef-fuzz).
 
 This article will go over why `jtd-fuzz` may be useful to you, how to install
 it, and then go through an example of using `jtd-fuzz` on a few schemas.
